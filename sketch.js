@@ -5,7 +5,7 @@ const Body = Matter.Body;
 
 var engine, world;
 var ground;
-var paperObject;
+var ball;
 var line1;
 var line2;
 var line3;
@@ -45,7 +45,10 @@ function setup(){
 
   
 	var ball_option = {
-	  restitution: 1.0
+	  restitution: 0.3,
+	  density:1.2,
+	  isStatic:false,
+	  friction:0.5
 	}
 	
 	ball = Bodies.circle(200,200,35,ball_option);
@@ -59,7 +62,7 @@ function setup(){
   function draw(){
 	background(0);
 
-	keyPressed;
+
 	
 	Engine.update(engine);
    
@@ -78,8 +81,8 @@ function setup(){
 function keyPressed(){
 
 	if (keyCode === UP_ARROW){
-
-		Body.applyForce(paperObject.body,paperObject.body.position,{x:85,y:-85});
+		console.log("hello");
+		Body.applyForce(ball,ball.position,{x:85,y:-85});
 		
 
 	}
